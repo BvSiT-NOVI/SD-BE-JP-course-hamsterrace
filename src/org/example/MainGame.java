@@ -2,13 +2,12 @@ package org.example;
 
 import org.example.GameBoard;
 
+import java.util.List;
+
 public class MainGame {
     public static void main(String[] args) {
-        GameBoard gameBoard = new GameBoard();
-        gameBoard.print();
-        System.out.println();
-        gameBoard.setToken(1,1,"@");
-        gameBoard.setToken(0,2,"X");
-        gameBoard.print();
+        Game game = new Game();
+        List<Integer> chosenNumbers = game.getPlayerInput(2);
+        System.out.println(chosenNumbers.toString());
     }
 }
