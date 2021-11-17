@@ -6,6 +6,10 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
+    //attributes
+    private List<Player> players = new ArrayList<>();
+
+    //methods
     List<Integer> getPlayerInput(int numPlayers)
     {
         Scanner scanner = new Scanner(System.in);
@@ -28,5 +32,17 @@ public class Game {
                 break;
             }
         }
+    }
+
+    //utility method
+    void addPlayer(String token){
+        this.players.add(new Player(token));
+    }
+
+    @Override
+    public String toString() {
+        return "Game{" +
+                "players=" + players +
+                '}';
     }
 }

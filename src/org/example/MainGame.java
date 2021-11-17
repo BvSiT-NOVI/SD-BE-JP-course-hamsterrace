@@ -6,8 +6,10 @@ import java.util.List;
 
 public class MainGame {
     public static void main(String[] args) {
-        Player player = new Player("@");
-        player.move();
-        System.out.println(player.toString());
+        Game game = new Game();
+        game.addPlayer("@");
+        game.addPlayer("X");
+        game.addPlayer("#");
+        System.out.println(game.toString());
     }
 }
