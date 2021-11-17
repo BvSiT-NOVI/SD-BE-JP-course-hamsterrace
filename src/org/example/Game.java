@@ -15,7 +15,6 @@ public class Game {
         numOfRoundsToWin = 4;
     }
 
-
     //methods
     List<Integer> getPlayerInput(int numPlayers)
     {
@@ -29,18 +28,30 @@ public class Game {
         return chosenNumbers;
     }
 
-    public void playRound(){
+    public boolean playRound(){
+        boolean isLastRound=false;
         int numberToGuess = (new Random()).nextInt(players.size())+1;
         System.out.println("numberToGuess="+ numberToGuess);//debug
         List<Integer> playerInput = getPlayerInput(players.size());
         for (int i = 0; i < playerInput.size(); i++) {
+            Player currentPlayer = players.get(i);
             if (playerInput.get(i)==numberToGuess){
-                System.out.println("Player "+ (i+1) + " has won this round!");
-                this.players.get(i).move();
+                currentPlayer.move();
+                if (isWinner(currentPlayer)) {
+                    isLastRound=true;
+                    showBoard();
+                    String msg = "Congratulations hamster %d, you won!";
+                    System.out.println(String.format(msg, i + 1));
+                    return isLastRound;
+                }
+                else {
+                    System.out.println("Player "+ (i+1) + " has won this round!");
+                }
                 break;
             }
         }
         showBoard();
+        return isLastRound;
     }
 
     //utility method
@@ -61,9 +72,14 @@ public class Game {
     public void play(){
         System.out.println("Welcome to the hamster race!");
         showBoard();
-        for (int i = 0; i < 2; i++) {
-            playRound();
+        boolean isLastRound=false;
+        while (!isLastRound){
+            isLastRound=playRound();
         }
+    }
+
+    private boolean isWinner(Player player){
+        return (player.getRowPosition() == numOfRoundsToWin);
     }
 
     @Override
