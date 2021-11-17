@@ -26,4 +26,9 @@ public class GameBoard {
             System.out.println(line);
         }
     }
+
+    public void printSeparatorLine(String tagEndLine){
+        String linePiece = "-".repeat(fieldTemplate.length());
+        System.out.println(linePiece.repeat(numColums) + tagEndLine);
+    }
 }
