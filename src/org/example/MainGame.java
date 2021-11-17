@@ -10,11 +10,7 @@ public class MainGame {
         game.addPlayer("@");
         game.addPlayer("X");
         game.addPlayer("#");
-
-        game.getPlayers().get(0).move();
-        game.getPlayers().get(0).move();
-        game.getPlayers().get(1).move();
-        game.showBoard();
+        game.playRound();
         System.out.println(game.toString());
     }
 }

@@ -29,16 +29,18 @@ public class Game {
         return chosenNumbers;
     }
 
-    public void playRound(int numPlayers){
-        int numberToGuess = (new Random()).nextInt(numPlayers)+1;
+    public void playRound(){
+        int numberToGuess = (new Random()).nextInt(players.size())+1;
         System.out.println("numberToGuess="+ numberToGuess);//debug
-        List<Integer> playerInput = getPlayerInput(numPlayers);
+        List<Integer> playerInput = getPlayerInput(players.size());
         for (int i = 0; i < playerInput.size(); i++) {
             if (playerInput.get(i)==numberToGuess){
                 System.out.println("Player "+ (i+1) + " has won this round!");
+                this.players.get(i).move();
                 break;
             }
         }
+        showBoard();
     }
 
     //utility method
