@@ -2,6 +2,7 @@ package org.example;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -15,5 +16,17 @@ public class Game {
             chosenNumbers.add(scanner.nextInt());
         }
         return chosenNumbers;
+    }
+
+    public void playRound(int numPlayers){
+        int numberToGuess = (new Random()).nextInt(numPlayers)+1;
+        System.out.println("numberToGuess="+ numberToGuess);//debug
+        List<Integer> playerInput = getPlayerInput(numPlayers);
+        for (int i = 0; i < playerInput.size(); i++) {
+            if (playerInput.get(i)==numberToGuess){
+                System.out.println("Player "+ (i+1) + " has won this round!");
+                break;
+            }
+        }
     }
 }
