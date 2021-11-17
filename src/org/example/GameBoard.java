@@ -17,9 +17,11 @@ public class GameBoard {
     }
 
     //Methods
-    public void print(){
-        for (int row = 0; row < numRows ; row++) {
-             String line ="";
+    public void print() {
+        for (int row = 0; row < numRows; row++) {
+            if (row == 1) printSeparatorLine("Start");//After start row insert start line
+            if (row == (numRows - 1)) printSeparatorLine("Finish");//Before last row insert finish line
+            String line = "";
             for (int col = 0; col < numColums; col++) {
                 line = fieldTemplate.repeat(numColums);
             }
