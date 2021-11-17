@@ -21,6 +21,10 @@ public class GameBoard {
         this(5,3," |");
     }
 
+    public GameBoard(int numRows, int numColums) {
+        this(numRows,numColums,"  |");
+    }
+
     //Methods
     public void print() {
         for (int row = 0; row < numRows; row++) {

@@ -8,6 +8,13 @@ import java.util.Scanner;
 public class Game {
     //attributes
     private List<Player> players = new ArrayList<>();
+    private int numOfRoundsToWin;
+
+    //constructor
+    public Game() {
+        numOfRoundsToWin = 4;
+    }
+
 
     //methods
     List<Integer> getPlayerInput(int numPlayers)
@@ -39,10 +46,25 @@ public class Game {
         this.players.add(new Player(token));
     }
 
+    public void showBoard(){
+        //Add extra row for start row.
+        GameBoard gameBoard = new GameBoard(numOfRoundsToWin+1, players.size());
+        for (int col = 0; col < players.size() ; col++) {
+            Player player = players.get(col);
+            gameBoard.setToken(player.getRowPosition(),col, player.getToken());
+        }
+        gameBoard.print();
+    }
+
     @Override
     public String toString() {
         return "Game{" +
                 "players=" + players +
                 '}';
+    }
+
+    //getters and setters
+    public List<Player> getPlayers() {
+        return players;
     }
 }
