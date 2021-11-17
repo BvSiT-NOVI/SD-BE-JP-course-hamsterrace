@@ -10,7 +10,7 @@ public class MainGame {
         game.addPlayer("@");
         game.addPlayer("X");
         game.addPlayer("#");
-        game.playRound();
+        game.play();
         System.out.println(game.toString());
     }
 }

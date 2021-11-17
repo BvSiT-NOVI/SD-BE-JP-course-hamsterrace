@@ -58,6 +58,14 @@ public class Game {
         gameBoard.print();
     }
 
+    public void play(){
+        System.out.println("Welcome to the hamster race!");
+        showBoard();
+        for (int i = 0; i < 2; i++) {
+            playRound();
+        }
+    }
+
     @Override
     public String toString() {
         return "Game{" +
