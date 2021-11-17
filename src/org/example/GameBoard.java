@@ -28,7 +28,7 @@ public class GameBoard {
             if (row == (numRows - 1)) printSeparatorLine("Finish");//Before last row insert finish line
             String line = "";
             for (int col = 0; col < numColums; col++) {
-                line = fieldTemplate.repeat(numColums);
+                line+= replaceAtStart(getToken(row,col ),fieldTemplate);
             }
             System.out.println(line);
         }
